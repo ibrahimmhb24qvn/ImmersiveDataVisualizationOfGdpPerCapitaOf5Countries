@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Bar Chart VR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <a-scene>
+        <!-- Camera with more distance from the chart -->
+        <a-entity id="camera" camera wasd-controls="acceleration: 200" look-controls position="0 1.6 5">
+            <a-cursor color="yellow"></a-cursor>
+        </a-entity>
+
+        <!-- Lighting -->
+        <a-entity light="type: ambient; intensity: 0.5"></a-entity>
+        <a-entity light="type: directional; intensity: 1; castShadow: true" position="-1 2 1"></a-entity>
+
+        <!-- Bar Chart Container -->
+        <a-entity id="barchart" position="0 1 0"></a-entity>
+
+        <!-- Sky -->
+        <a-sky color="#ECECEC"></a-sky>
+
+        <!-- Ground -->
+        <a-plane rotation="-90 0 0" width="20" height="20" color="#7BC8A4" shadow="receive: true"></a-plane>
+    </a-scene>
+
+    <script src="app.js"></script>
+</body>
+</html>
